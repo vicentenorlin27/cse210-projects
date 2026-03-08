@@ -2,6 +2,7 @@ using System;
 
 class Program
 {
+    // ask the user for their name
     static void Main(string[] args)
     {
         Console.WriteLine("What is your first name?");
@@ -10,6 +11,7 @@ class Program
         string lastName = Console.ReadLine();
 
 
-        Console.WriteLine($"Your name is {firstName} {lastName}!");
+        Console.WriteLine($"Your name is {firstName}, {lastName}!");
     }
 }
+
