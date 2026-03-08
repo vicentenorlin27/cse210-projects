@@ -10,7 +10,7 @@ class Program
         Console.WriteLine("What is your last name?");
         string lastName = Console.ReadLine();
 
-
+// will display the user's full name
         Console.WriteLine($"Your name is {firstName}, {lastName}!");
     }
 }
