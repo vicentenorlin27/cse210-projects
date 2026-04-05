@@ -7,8 +7,6 @@ namespace Mindfulness
     {
         private List<string> _prompts;
         private List<string> _questions;
-        private List<string> _unusedPrompts;
-        private List<string> _unusedQuestions;
         private Random _random = new Random();
 
         public ReflectionActivity()
@@ -36,35 +34,18 @@ namespace Mindfulness
                 "What did you learn about yourself through this experience?",
                 "How can you keep this experience in mind in the future?"
             };
-
-            _unusedPrompts = new List<string>(_prompts);
-            _unusedQuestions = new List<string>(_questions);
         }
 
         private string GetRandomPrompt()
         {
-            if (_unusedPrompts.Count == 0)
-            {
-                _unusedPrompts = new List<string>(_prompts);
-            }
-
-            int index = _random.Next(_unusedPrompts.Count);
-            string selected = _unusedPrompts[index];
-            _unusedPrompts.RemoveAt(index);
-            return selected;
+            int index = _random.Next(_prompts.Count);
+            return _prompts[index];
         }
 
         private string GetRandomQuestion()
         {
-            if (_unusedQuestions.Count == 0)
-            {
-                _unusedQuestions = new List<string>(_questions);
-            }
-
-            int index = _random.Next(_unusedQuestions.Count);
-            string selected = _unusedQuestions[index];
-            _unusedQuestions.RemoveAt(index);
-            return selected;
+            int index = _random.Next(_questions.Count);
+            return _questions[index];
         }
 
         public void Run()
